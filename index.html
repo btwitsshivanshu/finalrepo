@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Policy QA Assistant</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <h1>🧠 Policy Q&A System</h1>
+
+
+  <label>Enter Policy Document URL (.pdf or .docx):</label>
+  <input type="text" id="documentUrlInput" placeholder="https://example.com/policy.pdf" />
+
+  <label>Enter Your Questions (comma-separated):</label>
+  <textarea id="questionInput" rows="4" placeholder="E.g. Does it cover knee surgery?, What is the waiting period?"></textarea>
+
+  <button onclick="submitForm()">Ask Questions</button>
+
+  <div class="output" id="responseBox"></div>
+   <script src="/static/app.js"></script>
+  
+</body>
+</html>
+
