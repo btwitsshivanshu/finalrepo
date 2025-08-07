@@ -1,0 +1,131 @@
+:root {
+  --bg: #181a20;
+  --panel: #23262f;
+  --input-bg: #23262f;
+  --input-border: #353945;
+  --text: #f4f4f4;
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --accent: #00c6fb;
+  --output-bg: #23262f;
+  --output-border: #353945;
+  --error: #ff4d4f;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 40px;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+h1 {
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #0004;
+}
+
+label {
+  color: var(--text);
+  font-weight: 500;
+  margin-top: 18px;
+  display: block;
+}
+
+input, textarea {
+  margin: 10px 0;
+  padding: 12px;
+  width: 100%;
+  font-size: 1em;
+  background: var(--input-bg);
+  color: var(--text);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.2s, background 0.2s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  background: #23262f;
+}
+
+button {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 12px 0;
+  margin-top: 18px;
+  box-shadow: 0 2px 8px #0002;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, var(--primary-hover), var(--accent));
+}
+
+.output {
+  background: var(--output-bg);
+  color: var(--text);
+  padding: 18px;
+  margin-top: 24px;
+  border: 1px solid var(--output-border);
+  border-radius: 8px;
+  font-size: 1.05em;
+  box-shadow: 0 2px 12px #0003;
+  min-height: 40px;
+  word-break: break-word;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+::placeholder {
+  color: #b0b3b8;
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  body {
+    margin: 10px;
+  }
+  h1 {
+    font-size: 1.3em;
+  }
+}
+
+.loader {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border: 4px solid #353945;
+  border-top: 4px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.waiting-msg {
+  color: var(--accent);
+  font-size: 1em;
+  margin-top: 10px;
+  display: block;
+  animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
