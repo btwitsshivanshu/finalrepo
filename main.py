@@ -24,7 +24,7 @@ app.add_middleware(
 )
 
 # Mount static files directory
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="."), name="static")
 
 # ========== Serve HTML ==========
 @app.get("/", response_class=HTMLResponse)
@@ -173,3 +173,4 @@ def download_document(url: str, save_dir: str = ".", prefix: str = "remote_") ->
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
     return local_path
+
