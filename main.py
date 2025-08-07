@@ -11,6 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from fastapi.responses import Response, HTMLResponse, RedirectResponse
+from fastapi.responses import FileResponse
 
 # ========== FastAPI App Setup ==========
 app = FastAPI(title="HackRX Railway-Ready API")
@@ -36,7 +37,7 @@ async def serve_index():
 # ========== Handle Favicon Gracefully ==========
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
-    return RedirectResponse(url="/static/favicon.ico")
+    return FileResponse("favicon.ico")
 
 
 # ========== ENV & ChromaDB ==========
@@ -173,4 +174,5 @@ def download_document(url: str, save_dir: str = ".", prefix: str = "remote_") ->
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
     return local_path
+
 
